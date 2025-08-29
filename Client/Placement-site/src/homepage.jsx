@@ -81,7 +81,7 @@ function HomePage(){
           Track placements, explore opportunities, and celebrate success.
         </p>
         <button
-          onClick={() => navigate("/placements")}
+          onClick={() => navigate("/Super_30")}
           className="mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-300"
         >
           Explore Placements

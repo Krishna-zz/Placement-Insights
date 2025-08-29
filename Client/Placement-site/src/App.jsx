@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import StudentCard from "./StudentCard"
 import HomePage from "./homepage";
 import SubmitForm from "./SubmitForm"
 import Analysis from "./Analysis";
 import AllStudents from "./Allstudents";
 import Companies from "./Companies";
+import Super30 from "./Super30";
 
 function App() {
  
@@ -13,16 +13,16 @@ function App() {
     <>
      
      
-     <Router>
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/placements" element={<StudentCard/>}/>
+     <Router>  
+        <Routes>  
+            <Route path="/" element={<HomePage />}/>
             <Route path="/admin" element={<SubmitForm/>}/>
             <Route path="/placement_analysis" element={<Analysis/>}/>
             <Route path="/All_Students" element={<AllStudents/>}/>
             <Route path="/Companies" element={<Companies/>}/>
-        </Routes>
-     </Router>
+            <Route path="/Super_30" element={<Super30/>}/>
+        </Routes> 
+     </Router> 
     
    
     </>

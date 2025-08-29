@@ -90,6 +90,7 @@ function Analysis(){
             <p className="text-gray-600 font-medium">Total Placements</p>
             <h2 className="text-3xl font-bold text-blue-700">{count.placed}</h2>
           </div>
+          
            <div
             onClick={() => navigate("/Companies")}
             
@@ -98,17 +99,15 @@ function Analysis(){
             <p className="text-gray-600 font-medium">Total Companies</p>
             <h2 className="text-3xl font-bold text-blue-700">{count.companies}</h2>
           </div>
+
            <div
-            
-            
             className="bg-white/70 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/40 hover:scale-105 transition-all duration-300"
           >
             <p className="text-gray-600 font-medium">Highest CTC</p>
             <h2 className="text-3xl font-bold text-blue-700">{ count.highest + " LPA"}</h2>
           </div>
+
            <div
-            
-            
             className="bg-white/70 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/40 hover:scale-105 transition-all duration-300"
           >
             <p className="text-gray-600 font-medium">Average CTC</p>
