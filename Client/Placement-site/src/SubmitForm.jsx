@@ -32,7 +32,7 @@ function SubmitForm(){
             alert(data.message)
 
             if (res.ok) {
-                navigate('/placements')
+                navigate('/All_Students')
             }
         }
 
