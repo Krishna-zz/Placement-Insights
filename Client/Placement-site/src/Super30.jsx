@@ -1,5 +1,5 @@
 import images from "./assets/images";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaLinkedin,
   FaGithub,
@@ -10,23 +10,21 @@ import {
   FaCrown,
 } from "react-icons/fa";
 import { SiAboutdotme } from "react-icons/si";
+import { href } from "react-router-dom";
 
 
 function Super30(){
 
-  const [year, setYear] = useState("2025");
+  const [super30, setSuper30] = useState([])
+  const [year, setYear] = useState("2025")
 
-  const students = Array.from({ length: 30 }, (_, i) => ({
-    rank: i + 1,
-    name: `Student ${i + 1}`,
-    branch: "Computer Science",
-    company: i < 3 ? "Google" : i < 12 ? "Microsoft" : "Amazon",
-    ctc: i < 3 ? "50 LPA" : i < 12 ? "35 LPA" : "20 LPA",
-    linkedin: "#",
-    github: "#",
-    portfolio: "#",
-    instagram: "#",
-  }));
+  useEffect(() => {
+
+    fetch('http://localhost:3000/user/Super_30_data')
+    .then(res => res.json())
+    .then(data => setSuper30(data))
+    .catch(err => console.error('Error fetching data:', err))
+  })
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -40,12 +38,12 @@ function Super30(){
             href="#about"
             className="text-gray-700 font-semibold hover:text-blue-600 transition"
           >
-            About Us
+            About Us          
           </a>
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow hover:shadow-lg transition cursor-pointer" 
           >
             <option value="2025">2025</option>
             <option value="2024">2024</option>
@@ -61,7 +59,7 @@ function Super30(){
 
       {/* ✅ Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-8 pb-16">
-        {students.map((student, index) => {
+        {super30.map((student, index) => {
           let cardClasses =
             "rounded-2xl flex flex-col justify-between bg-white shadow-md hover:shadow-2xl transition-all duration-300 relative overflow-hidden";
 
@@ -113,41 +111,41 @@ function Super30(){
                     <div className="w-40 h-40 rounded-full shadow-lg mb-6 overflow-hidden border-4 border-white">
                         <img
                          src={images[`Student${index + 1}`]}  // Dynamically load image
-                         alt={student.name}
+                         alt={student.StudentName}
                          className="w-full h-full object-cover"
                         />
                     </div>
 
                 {/* Name & Rank */}
-                <h3 className="text-2xl font-bold mb-2">{student.name}</h3>
-                <p className="text-gray-500 mb-6 text-lg">Rank #{student.rank}</p>
+                <h3 className="text-2xl font-bold mb-2">{student.StudentName}</h3>
+                <p className="text-gray-500 mb-6 text-lg">Rank #{index + 1}</p>
 
                 {/* Details */}
                 <div className="space-y-4 mb-9 text-gray-700">
                   <p className="flex items-center gap-3 text-lg justify-center">
-                    <FaGraduationCap className="text-blue-500 text-2xl" /> <span className="text-lg font-semibold text-gray-800 flex items-center gap-2">{student.branch}</span>
+                    <FaGraduationCap className="text-blue-500 text-2xl" /> <span className="text-lg font-semibold text-gray-800 flex items-center gap-2">{student.StudentBranch}</span>
                   </p>
                   <p className="flex items-center gap-3 text-lg justify-center">
-                    <FaBuilding className="text-purple-500 text-2xl" /><span className="text-lg font-semibold text-gray-700 flex items-center gap-2"> {student.company}</span>
+                    <FaBuilding className="text-purple-500 text-2xl" /><span className="text-lg font-semibold text-gray-700 flex items-center gap-2"> {student.StudentCompany}</span>
                   </p>
                   <p className="flex items-center gap-3 text-lg justify-center">
-                    <FaMoneyBillWave className="text-green-500 text-2xl" /> <span className="text-lg font-bold text-green-400 flex items-center gap-2">{student.ctc}</span>
+                    <FaMoneyBillWave className="text-green-500 text-2xl" /> <span className="text-lg font-bold text-green-400 flex items-center gap-2">{student.StudentCTC}</span>
                   </p>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="flex mt-3 justify-around text-xl border-t pt-4 pb-4 text-gray-500">
-                <a href={student.linkedin} className="hover:text-blue-600">
+              <div className="flex mt-3 justify-around text-xl border-t pt-4 pb-4">
+                <a href={student.LinkedIn} className="text-gray-500 hover:text-blue-600 transition-colors duration-300">
                   <FaLinkedin />
                 </a>
-                <a href={student.github} className="hover:text-gray-800">
+                <a href={student.Github} className="text-gray-500 hover:text-gray-800 transition-colors duration-300">
                   <FaGithub />
                 </a>
-                <a href={student.portfolio} className="hover:text-green-600">
+                <a href={student.Portfolio} className="text-gray-500 hover:text-green-600 transition-colors duration-300 transform hover:scale-110">
                   <SiAboutdotme />
                 </a>
-                <a href={student.instagram} className="hover:text-pink-500">
+                <a href={student.Instagram} className="text-gray-500 hover:text-pink-500 transition-colors duration-300">
                   <FaInstagram />
                 </a>
               </div>

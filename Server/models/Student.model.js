@@ -8,6 +8,7 @@ const studentSchema = new mongoose.Schema({
   company: String,
   ctc: String,
   
+  
 })
 
 const student = mongoose.model('student', studentSchema , 'placement_data')
