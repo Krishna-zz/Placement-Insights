@@ -24,7 +24,7 @@ function Super30(){
     .then(res => res.json())
     .then(data => setSuper30(data))
     .catch(err => console.error('Error fetching data:', err))
-  })
+  },[])
 
   return (
     <div className="min-h-screen bg-gray-50">

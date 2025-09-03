@@ -3,6 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
 const placementData = require('../Server/routes/placement.routes')
+const authData = require('../Server/routes/auth.routes')
 const StudentModel = require('../Server/models/Student.model')
 const connect_to_DB = require('../Server/config/db')
 
@@ -23,7 +24,7 @@ app.use(express.urlencoded({extended:true}))
 
 app.use('/user', placementData)
 
-
+app.use('/user', authData)
 
 
 

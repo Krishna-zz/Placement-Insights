@@ -28,9 +28,11 @@ function HomePage(){
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium">
-              About Us
-            </a>
+           <button  onClick={() => navigate('/Auth')} className="px-5 py-2 rounded-full text-gray-700 hover:text-blue-600 font-medium bg-gray-200 hover:bg-gray-300 shadow-lg transition-transform hover:scale-105">
+              
+              Login/Register
+            
+           </button>
             <button
               onClick={() => navigate("/placement_analysis")}
               className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-semibold shadow-lg transition-transform hover:scale-105"
@@ -53,9 +55,11 @@ function HomePage(){
           <div className="md:hidden bg-white shadow-md">
             <ul className="flex flex-col items-center py-4 space-y-4">
               <li>
-                <a href="#about" className="text-gray-700 text-lg font-medium">
-                  About Us
-                </a>
+                <button  onClick={() => navigate('/Auth')}  className="px-5 py-2 rounded-full text-gray-700 hover:text-blue-600 font-medium bg-gray-200 hover:bg-gray-300 shadow-lg transition-transform hover:scale-105">
+                 
+                    Login/Register
+                 
+                </button>
               </li>
               <li>
                 <button
