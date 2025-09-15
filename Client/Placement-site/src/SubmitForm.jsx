@@ -30,7 +30,7 @@ function SubmitForm(){
 
         const handleSubmit = async(e) => {
             e.preventDefault();
-            const res = await fetch('http://localhost:3000/user/addPlacement' ,
+            const res = await fetch('http://localhost:3000/user/setcard' ,
                 {
                     method:'POST',
                     headers:{
